@@ -1,5 +1,11 @@
 'use strict'
 
+/*
+    npm init -y
+    npm i express dotenv express-async-errors
+    npm i mongoose
+*/
+
 const express= require('express');
 const app = express();
 
