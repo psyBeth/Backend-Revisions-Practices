@@ -14,3 +14,10 @@ require('./src/configs/dbConnection');
 app.all('/', (req, res) => {
     res.send('wellcome, app is working')
 });
+
+
+
+
+app.use(require('./src/middlewares/errorHandler'));
+
+app.listen(PORT, () => console.log(`Server is running on -> http://${HOST}:${PORT}`));
