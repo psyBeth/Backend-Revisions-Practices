@@ -4,6 +4,7 @@
     npm init -y
     npm i express dotenv express-async-errors
     npm i mongoose
+    npm i cookie-session
 */
 
 const express= require('express');

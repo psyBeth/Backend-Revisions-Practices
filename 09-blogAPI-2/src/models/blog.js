@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 //* BLOG CATEGORY
 
 const blogCategorySchema = new mongoose.Schema({
+    // _id
     name: {
         type: String,
         trim: true,
