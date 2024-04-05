@@ -23,8 +23,10 @@ app.all('/', (req, res) => {
 });
 
 
+// ROUTES
+app.use('/blog', require('./src/routes/blog'));
 
-
+// ERROR HANDLER
 app.use(require('./src/middlewares/errorHandler'));
 
 app.listen(PORT, () => console.log(`Server is running on -> http://${HOST}:${PORT}`));
