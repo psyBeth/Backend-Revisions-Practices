@@ -2,6 +2,8 @@
 
 const mongoose = require('mongoose');
 
+const passwordEncrypt = require('../helpers/passwordEncrypt');
+
 const UserSchema = new mongoose.Schema({
 
     email: {
@@ -17,8 +19,8 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         trim: true,
-        required: true
-        //TODO: password encrypt will be here (build a helper)
+        required: true,
+        set: (password) => passwordEncrypt(password)
     }, 
 
     firstName: String,
