@@ -18,6 +18,9 @@ const HOST = process.env.HOST;
 
 require('./src/configs/dbConnection');
 
+// MIDDLEWARES
+app.use(require('./src/middlewares/findSearchSortPage'));
+
 app.all('/', (req, res) => {
     res.send('wellcome, app is working')
 });
