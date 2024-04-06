@@ -2,8 +2,7 @@
 
 const router = require('express').Router();
 
-const { blogCategory } = require('../controllers/blog');
-const blog = require('../models/blog');
+const { blogCategory, blogPost } = require('../controllers/blog');
 
 //* BLOG CATEGORY
 
@@ -19,5 +18,14 @@ router.route('/categories/:categoryId')
 
 //* BLOG POST
 
+router.route('posts')
+    .get(blogPost.list)
+    .post(blogPost.create)
+
+router.route('/posts/:postId')
+    .get(blogPost.read)
+    .put(blogPost.update)
+    .patch(blogPost.update)
+    .delete(blogPost.delete)
 
 module.exports = router;
