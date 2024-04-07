@@ -50,8 +50,6 @@ module.exports.blogCategory = {
 };
 
 module.exports.blogPost = {
-    //TODO: filtering, searching, sorting, pagination will be here -- or in a seperate file
-    //! DON'T FORGETTTT!!!!
 
     list: async(req, res) => {
         const data = await res.getModelList(blogPost, 'blogCategoryId');
