@@ -49,5 +49,6 @@ module.exports = {
     },
 
     //? LOGIN & LOGOUT 
+    // cookie session will be used
 
 }

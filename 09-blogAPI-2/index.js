@@ -28,6 +28,7 @@ app.all('/', (req, res) => {
 
 // ROUTES
 app.use('/blog', require('./src/routes/blog'));
+app.use('/user', require('./src/routes/user'));
 
 // ERROR HANDLER
 app.use(require('./src/middlewares/errorHandler'));
