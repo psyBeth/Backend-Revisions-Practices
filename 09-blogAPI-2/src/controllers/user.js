@@ -51,4 +51,48 @@ module.exports = {
     //? LOGIN & LOGOUT 
     // cookie session will be used
 
-}
+    login: async(req, res) => {
+        const { email, password } = req.body;
+
+        if( email && password ) {
+
+            const user = await User.findOne({email: email});
+
+            if( user && user.password == passwordEncrypt(password)) {
+
+                // SESSIONS:
+                req.session.email = user.email;
+                req.session.password = user.password;
+
+                // COOKIES:
+                if(req.body.remindMe) {
+                    req.session.remindMe = req.body.remindMe;
+                    req.sessionOptions.maxAge = 1000 * 60 * 60 * 24 * 3;     // set maxAge: 3 days
+                };
+
+                req.status(200).send({
+                    error: false,
+                    message: 'login ok.',
+                    user: user
+                });
+
+            } else {
+                res.errorStatusCode = 401;
+                throw new Error('Wrong e-mail or password.')
+            };
+
+        } else {
+            res.errorStatusCode = 401;
+            throw new Error('E-mail and password are both required.')
+        };
+    },
+
+    logout: async(req, res) =>{
+        req.session = null;
+        req.status(200).send({
+            error: false,
+            message: 'logout ok.'
+        });
+    }
+
+};
