@@ -7,7 +7,7 @@ const User = require('../controllers/user');
 //login logout will be here
 
 router.route('/')
-    .then(User.list)
+    .get(User.list)
     .post(User.create)
 
 router.route('/:userId')
