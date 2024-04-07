@@ -4,7 +4,8 @@ const router = require('express').Router();
 
 const User = require('../controllers/user');
 
-//login logout will be here
+router.post('/login', User.login);
+router.all('/logout', User.logout);
 
 router.route('/')
     .get(User.list)
