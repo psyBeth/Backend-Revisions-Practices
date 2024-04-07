@@ -15,7 +15,7 @@ module.exports = async() => {
     // example user:
     const user = await User.create({
         email: 'testing@test.com',
-        password: '12345678',
+        password: 'abcdefg',
         firstName: 'Test',
         lastName: 'Test'
     });
@@ -29,7 +29,7 @@ module.exports = async() => {
     for( let key in [...Array(200)]) {
         await blogPost.create({
             userId: user._id,
-            blogCategoryId: BlogCategory._id,
+            categoryId: BlogCategory._id,
             title: `test ${key} title`,
             content: `test ${key} content`,
             published: Boolean(key%2)
