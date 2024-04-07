@@ -18,6 +18,12 @@ const HOST = process.env.HOST;
 
 require('./src/configs/dbConnection');
 
+//? COOKIE - SESSION
+const session = require('cookie-session');
+app.use(session({
+    secret: process.env.SECRET_KEY
+}));
+
 //? MIDDLEWARES
 app.use(require('./src/middlewares/userControl'));
 app.use(require('./src/middlewares/findSearchSortPage'));
