@@ -15,17 +15,30 @@ const PORT = process.env.PORT;
 
 require('express-async-errors');
 
+//? DOCUMENTATION:
+//* https://swagger-autogen.github.io/docs/
+// $ npm i swagger-autogen
+// $ npm i swagger-ui-express
+// $ npm i redoc-express
+
+// JSON
+
+// SWAGGER
+
+// REDOC
+
 // CONFIGURATION DATABASE:
 const { dbConnection } = require('./src/configs/dbConnection');
 dbConnection();
 
 // MIDDLEWARES:
-
+app.use(express.json());
 
 // ROUTES:
 
 
 // ERROR HANDLER:
+app.use(require('./src/middlewares/errorHandler'));
 
-
-//
+//RUN SERVER:
+app.listen(PORT, () => console.log(`Server started at: https://${HOST}:${PORT}`));
