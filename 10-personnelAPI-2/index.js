@@ -36,6 +36,7 @@ app.use(express.json());
 
 // ROUTES:
 app.use('/departments', require('./src/routes/department'));
+app.use('/personnels', require('./src/routes/personnel'));
 
 
 // ERROR HANDLER:
