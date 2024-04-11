@@ -23,8 +23,8 @@ const PersonnelSchema = new mongoose.Schema({
     password: {
         type: String,
         trim: true,
-        required: true
-        // set password encryption will be here
+        required: true,
+        set: (password) => passwordEncrypt(password)
     },
 
     firsName: {
@@ -95,4 +95,4 @@ const PersonnelSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('personnels', PersonnelSchema);
+module.exports = mongoose.model('Personnel', PersonnelSchema);
