@@ -21,7 +21,6 @@ require('express-async-errors');
 // $ npm i swagger-ui-express
 // $ npm i redoc-express
 
-// JSON
 
 // SWAGGER
 
@@ -32,10 +31,15 @@ const { dbConnection } = require('./src/configs/dbConnection');
 dbConnection();
 
 // MIDDLEWARES:
+
+// JSON:
 app.use(express.json());
 
 // COOKIE-SESSIONS:
 app.use(require('cookie-session')({secret: process.env.SECRET_KEY}));
+
+// res.getModelList():
+app.use(require('./src/middlewares/findSearchSortPage'));
 
 // ROUTES:
 app.use('/departments', require('./src/routes/department'));
