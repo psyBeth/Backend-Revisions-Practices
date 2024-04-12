@@ -27,7 +27,7 @@ const PersonnelSchema = new mongoose.Schema({
         set: (password) => passwordEncrypt(password)
     },
 
-    firsName: {
+    firstName: {
         type: String,
         trim: true,
         required: true

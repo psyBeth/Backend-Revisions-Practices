@@ -44,3 +44,6 @@ app.use(require('./src/middlewares/errorHandler'));
 
 //RUN SERVER:
 app.listen(PORT, () => console.log(`Server started at: https://${HOST}:${PORT}`));
+
+// SYNCRONIZATION:
+require('./src/helpers/sync')();
