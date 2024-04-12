@@ -34,6 +34,9 @@ dbConnection();
 // MIDDLEWARES:
 app.use(express.json());
 
+// COOKIE-SESSIONS:
+app.use(require('cookie-session')({secret: process.env.SECRET_KEY}));
+
 // ROUTES:
 app.use('/departments', require('./src/routes/department'));
 app.use('/personnels', require('./src/routes/personnel'));
@@ -46,4 +49,4 @@ app.use(require('./src/middlewares/errorHandler'));
 app.listen(PORT, () => console.log(`Server started at: https://${HOST}:${PORT}`));
 
 // SYNCRONIZATION:
-require('./src/helpers/sync')();
+// require('./src/helpers/sync')();
