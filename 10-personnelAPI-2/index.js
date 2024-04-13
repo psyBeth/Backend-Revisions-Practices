@@ -40,8 +40,8 @@ app.use(require('cookie-session')({secret: process.env.SECRET_KEY}));
 // res.getModelList():
 app.use(require('./src/middlewares/findSearchSortPage'));
 
-// LOGIN & LOGOUT CONTROL:
-app.use(require('./src/middlewares/loginControl'));
+// AUTHENTICATION:
+app.use(require('./src/middlewares/authentication'));
 
 //? ROUTES:
 // HomePath:
