@@ -31,8 +31,11 @@ const { dbConnection } = require('./src/configs/dbConnection');
 dbConnection();
 
 //? MIDDLEWARES:
-// JSON:
+//  ACCEPT JSON:
 app.use(express.json());
+
+// LOGGING:
+app.use(require('./src/middlewares/logging'));
 
 // COOKIE-SESSIONS:
 app.use(require('cookie-session')({secret: process.env.SECRET_KEY}));
