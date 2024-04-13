@@ -31,7 +31,6 @@ const { dbConnection } = require('./src/configs/dbConnection');
 dbConnection();
 
 //? MIDDLEWARES:
-
 // JSON:
 app.use(express.json());
 
@@ -45,11 +44,18 @@ app.use(require('./src/middlewares/findSearchSortPage'));
 app.use(require('./src/middlewares/loginControl'));
 
 //? ROUTES:
-app.use('/auth', require('./src/routes/auth'));
-app.use('/tokens', require('./src/routes/token'));
-app.use('/personnels', require('./src/routes/personnel'));
-app.use('/departments', require('./src/routes/department'));
+// HomePath:
+app.all('/', (req, res) => {
+    res.send({
+        error: false,
+        message: 'Welcome to PERSONNEL API',
+        // session: req.session,
+        // isLogin: req.isLogin,
+        user: req.user
+    });
+});
 
+app.use(require('./src/routes/'));
 
 //? ERROR HANDLER:
 app.use(require('./src/middlewares/errorHandler'));
