@@ -5,7 +5,7 @@ const router = require('express').Router();
 const personnel = require('../controllers/personnel');
 const permissions = require('../middlewares/permissions');
 
-// URL: /personnels
+// URL: /personnel
 
 router.post('/login', personnel.login);
 router.all('/logout', personnel.logout);

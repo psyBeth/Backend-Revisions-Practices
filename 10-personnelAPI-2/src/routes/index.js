@@ -5,13 +5,13 @@ const router = require('express').Router();
 // /auth:
 router.use('/auth', require('../routes/auth'));
 
-// /tokens:
+// /token:
 router.use('/tokens', require('../routes/token'));
 
-// /personnels:
+// /personnel:
 router.use('/personnels', require('../routes/personnel'));
 
-// /departments:
+// /department:
 router.use('/departments', require('../routes/department'));
 
 module.exports = router;

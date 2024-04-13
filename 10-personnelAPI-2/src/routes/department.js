@@ -5,7 +5,7 @@ const router = require('express').Router();
 const department = require('../controllers/department');
 const permissions = require('../middlewares/permissions');
 
-// URL: /departments
+// URL: /department
 
 router.route('/')
     .get(permissions.isLogin, department.list)

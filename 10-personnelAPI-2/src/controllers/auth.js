@@ -1,7 +1,5 @@
 'use strict'
 
-//TODO: SWAGGER WILL ALSO BE ADDED HERE
-
 const Personnel = require('../models/personnel');
 
 const Token = require('../models/token');
@@ -11,6 +9,19 @@ const passwordEncrypt = require('../helpers/passwordEncrypt');
 module.exports = {
 
     login: async (req, res) => {
+        /*
+            #swagger.tags = ['Authentication']
+            #swagger.summary = 'Login'
+            #swagger.description = 'Login with username and password'
+            #swagger.parameters['body'] = {
+                in: 'body',
+                required: 'true',
+                schema: {
+                    username: "testF0",
+                    password: "1234"
+                }
+            }
+        */
 
         const { username, password } = req.body;
 
@@ -47,6 +58,12 @@ module.exports = {
     },
 
     logout: async (req, res) => {
+        /*
+            #swagger.tags = ['Authentication']
+            #swagger.summary = 'Logout'
+            #swagger.description = 'Delete Token'
+        */
+
         const auth = req.headers?.authorization || null; // Token ...tokenKey...
         const tokenKey = auth ? auth.split(' ') : null; // ['Token', '...tokenKey...']
 

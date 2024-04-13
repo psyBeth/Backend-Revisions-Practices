@@ -6,7 +6,7 @@ const token = require('../controllers/token');
 
 const { isAdmin } = require('../middlewares/permissions');
 
-// URL: /tokens
+// URL: /token
 
 router.use(isAdmin)
 

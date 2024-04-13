@@ -43,7 +43,7 @@ app.use(require('cookie-session')({secret: process.env.SECRET_KEY}));
 // res.getModelList():
 app.use(require('./src/middlewares/findSearchSortPage'));
 
-// AUTHENTICATION:
+// AUTHENTICATION: (simple token)
 app.use(require('./src/middlewares/authentication'));
 
 //? ROUTES:
