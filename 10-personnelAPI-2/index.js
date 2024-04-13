@@ -45,6 +45,7 @@ app.use(require('./src/middlewares/findSearchSortPage'));
 app.use(require('./src/middlewares/loginControl'));
 
 //? ROUTES:
+app.use('/auth', require('./src/routes/auth'));
 app.use('/tokens', require('./src/routes/token'));
 app.use('/personnels', require('./src/routes/personnel'));
 app.use('/departments', require('./src/routes/department'));
