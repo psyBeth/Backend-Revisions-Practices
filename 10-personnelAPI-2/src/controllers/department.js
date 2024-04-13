@@ -8,7 +8,7 @@ module.exports = {
         const data = await res.getModelList(Department);
         res.status(200).send({
             error: false,
-            detail: await res.getModelList(Department),
+            detail: await res.getModelListDetails(Department),
             data   // data: data
         });
     },

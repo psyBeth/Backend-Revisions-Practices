@@ -9,7 +9,7 @@ module.exports = {
         const data = await res.getModelList(Personnel, {}, 'departmentId');
         res.status(200).send({
             error: false,
-            detail: await res.getModelList(Personnel),
+            detail: await res.getModelListDetails(Personnel),
             data
         });
     },
