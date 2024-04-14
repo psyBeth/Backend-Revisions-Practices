@@ -25,3 +25,20 @@ dbConnection();
 app.use(express.json());
 
 //? LOGGER:
+app.use(require('./src/middlewares/logger'));
+
+//? AUTHENTICATION:
+
+
+//? FIND, SEARCH, SORT, PAGINATION:
+
+//? ROUTES:
+
+
+//? ERRORHANDLER:
+app.use(require('./src/middlewares/errorHandler'));
+
+//? Run the server:
+app.listen(PORT, () => console.log(`Server started at: https://${HOST}:${PORT}`));
+
+//? syncronization:
