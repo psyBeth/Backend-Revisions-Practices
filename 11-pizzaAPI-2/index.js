@@ -8,6 +8,8 @@
     $ npm i swagger-autogen
     $ npm i swagger-ui-express
     $ npm i redoc-express
+    $ npm i jsonwebtoken
+    $ npm i nodemailer multer
     $ nodemon
 */
 
