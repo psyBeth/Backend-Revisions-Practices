@@ -9,6 +9,6 @@ module.exports = {
         } else {
             res.errorStatusCode = 403;
             throw new Error('NoPermission: You must login.');
-        }
+        };
     },
-}
+};
