@@ -33,7 +33,20 @@ app.use(require('./src/middlewares/logger'));
 //? FIND, SEARCH, SORT, PAGINATION:
 
 //? ROUTES:
-
+// app.use('/', require('./src/routes/'));
+//homepath:
+// app.all('/', (req, res) => {
+//     res.send({
+//         error: false,
+//         message: 'Welcome to PIZZA API',
+//         docs: {
+//             swagger: "/documents/swagger",
+//             redoc: "/documents/redoc",
+//             json: "/documents/json",
+//         },
+//         user: req.user,
+//     });
+// });
 
 //? ERRORHANDLER:
 app.use(require('./src/middlewares/errorHandler'));
@@ -42,3 +55,4 @@ app.use(require('./src/middlewares/errorHandler'));
 app.listen(PORT, () => console.log(`Server started at: https://${HOST}:${PORT}`));
 
 //? syncronization:
+// require('./src/helpers/sync')();
