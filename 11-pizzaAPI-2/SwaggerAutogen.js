@@ -1,4 +1,7 @@
 'use strict'
+// $ npm i swagger-autogen
+// $ npm i swagger-ui-express
+// $ npm i redoc-express
 
 require('dotenv').config();
 const HOST = process.env?.HOST || '127.0.0.1';

@@ -5,6 +5,9 @@
     $ npm i express dotenv mongoose express-async-errors
     $ npm i morgan swagger-autogen swagger-ui-express redoc-express
     $ mkdir logs
+    $ npm i swagger-autogen
+    $ npm i swagger-ui-express
+    $ npm i redoc-express
     $ nodemon
 */
 
