@@ -31,9 +31,10 @@ app.use(express.json());
 app.use(require('./src/middlewares/logger'));
 
 //? AUTHENTICATION:
-
+// app.use(require('./src/middlewares/authentication'));
 
 //? FIND, SEARCH, SORT, PAGINATION:
+app.use(require('./src/middlewares/queryHandler'));
 
 //? ROUTES:
 // app.use('/', require('./src/routes/'));
