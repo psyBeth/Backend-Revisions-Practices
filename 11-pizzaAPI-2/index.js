@@ -39,7 +39,7 @@ app.use(require('./src/middlewares/logger'));
 app.use(require('./src/middlewares/queryHandler'));
 
 //? ROUTES:
-// app.use('/', require('./src/routes/'));
+app.use('/', require('./src/routes/'));
 //homepath:
 // app.all('/', (req, res) => {
 //     res.send({
