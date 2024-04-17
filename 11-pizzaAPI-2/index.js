@@ -41,18 +41,18 @@ app.use(require('./src/middlewares/queryHandler'));
 //? ROUTES:
 app.use('/', require('./src/routes/'));
 //homepath:
-// app.all('/', (req, res) => {
-//     res.send({
-//         error: false,
-//         message: 'Welcome to PIZZA API',
-//         docs: {
-//             swagger: "/documents/swagger",
-//             redoc: "/documents/redoc",
-//             json: "/documents/json",
-//         },
-//         user: req.user,
-//     });
-// });
+app.all('/', (req, res) => {
+    res.send({
+        error: false,
+        message: 'Welcome to PIZZA API',
+        docs: {
+            swagger: "/documents/swagger",
+            redoc: "/documents/redoc",
+            json: "/documents/json",
+        },
+        user: req.user,
+    });
+});
 
 //? ERRORHANDLER:
 app.use(require('./src/middlewares/errorHandler'));
