@@ -1,1 +1,14 @@
-# will work here!
+# no extension in the dockerfile, name does not differ
+# linux, node, hello.js
+
+FROM node:21-alpine3.18
+# workspace
+WORKDIR /app
+
+# which files are going to be in app
+# COPY source dest
+COPY . .
+# COPY hello.js /app
+
+# after the build
+CMD node hello.js
