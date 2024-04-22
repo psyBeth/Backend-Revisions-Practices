@@ -2,13 +2,18 @@
 # linux, node, hello.js
 
 FROM node:21-alpine3.18
+# This line sets the base image to use, which is Node.js version 21 on Alpine Linux 3.18. (look it up from website)
+
 # workspace
 WORKDIR /app
+# Sets the working directory inside the container to /app.
 
 # which files are going to be in app
 # COPY source dest
 COPY . .
 # COPY hello.js /app
+# Copies all files and folders from the current directory (where the Dockerfile is located) into the /app directory in the container.
 
 # after the build
 CMD node hello.js
+# Specifies the command to run when the container starts, which is to execute the hello.js script using Node.js.
