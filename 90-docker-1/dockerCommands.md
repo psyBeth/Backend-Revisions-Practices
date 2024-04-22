@@ -5,6 +5,7 @@
 $ docker --version
 $ docker version
 $ docker info
+# don't forget configurations
 
 $ docker --help
 $ docker build  --help
