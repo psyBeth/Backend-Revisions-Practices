@@ -4,7 +4,7 @@
 ------------------------------------------------------- */
 // MongoDB Connection:
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const dbConnection = function () {
     // Connect:
