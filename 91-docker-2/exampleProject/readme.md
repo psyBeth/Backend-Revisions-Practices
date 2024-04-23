@@ -1,37 +1,37 @@
 ## Server Systems
 
 * Physical Servers (BareMetal Servers):
-    * Bilgisayar -> Yüksek donanım, özel işlemciler, özel işletim sistemleri.
-    * Kurulum: zor
-    * VeriTaşıma: zor
-    * Maliyet: yüksek
+    * Computers -> High hardware, custom processors, custom operating systems.
+    * Installation: difficult
+    * Data Transfer: difficult
+    * Cost: high
     * Dedicated Servers
 
 * Virtual Servers (VMs: Virtual Machines):
-    * Bir fiziksel makina içinde çok sanal makina.
-    * Kurulum: orta (iso image)
-    * VeriTaşıma: orta
-    * Maliyet: orta
-    * Bir makiaden diğer makinaya geçiş zorluğu.
-    * Hypervisor yazılımları -> vmware.com
+    * Multiple virtual machines within one physical machine.
+    * Installation: medium (iso image)
+    * Data Transfer: medium
+    * Cost: medium
+    * Difficulty transitioning from one machine to another.
+    * Hypervisor software -> vmware.com
     * VPS (Virtual Private Server), VDS (Virtual Dedicated Server)
 
 * Containers:
-    * Bir fiziksel/sanal makina içinde çok konteyner.
-    * Kurulum: kolay (docker image)
-    * VeriTaşıma: kolay
-    * Maliyet: düşük
-    * Tüm konteynerları aynı ortamdan yönetebilme.
-    * Microservice mimarisi.
-    * Container yazılımları -> docker.com
+    * Multiple containers within one physical/virtual machine.
+    * Installation: easy (docker image)
+    * Data Transfer: easy
+    * Cost: low
+    * Ability to manage all containers from the same environment.
+    * Microservice architecture.
+    * Container software -> docker.com
 
 # Docker
 
-## Yüklemeler:
+## Installations:
 
-* Docker Desktop -> https://www.docker.com/products/docker-desktop/
-    * Windows ve Macos için setup dosyası mevcut.
-    * Linux sistemlere CLI üzerinden kurulum yapılabilir. -> https://docs.docker.com/desktop/install/linux-install/
+* Docker Desktop -> [Official Docker Website](https://www.docker.com/productsdocker-desktop/)
+    * Setup files available for Windows and MacOS.
+    * Installation on Linux systems can be done via CLI. -> [Linux Installation Docs](https://docs.docker.com/desktop/install/linux-install/)
 
 * Docker Hub -> https://hub.docker.com
 
