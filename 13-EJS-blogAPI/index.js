@@ -52,9 +52,13 @@ app.all('/', (req, res) => {
     res.send('WELCOME TO BLOG API')
 })
 
-// Routes:
-app.use('/api/user', require('./src/routes/userRoute'))
-app.use('/api/blog', require('./src/routes/blogRoute'))
+// VIEW Routes:
+app.use('/views/user', require('./src/routes/views/userRoute'))
+app.use('/views/blog', require('./src/routes/views/blogRoute'))
+
+// API Routes:
+app.use('/api/user', require('./src/routes/api/userRoute'))
+app.use('/api/blog', require('./src/routes/api/blogRoute'))
 
 /* ------------------------------------------------------- */
 // Synchronization:
