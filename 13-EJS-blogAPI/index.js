@@ -13,6 +13,22 @@ const app = express()
 
 require('dotenv').config()
 const PORT = process.env.PORT || 8000
+/* ------------------------------------------------------- */
+//* TEMPLATE
+
+// default: open and close delimiter -> <% ... %>
+// const ejs = require('ejs');
+// ejs.delimiter = '#'   //!  <# ... #>
+// ejs.openDelimiter = '{'  //!  {# ...#>
+// ejs.closeDelimiter = '}'  //! {# ... #}
+
+app.set('view engine', 'ejs');
+app.set('view options', {
+    // delimiter: '%',
+    openDelimiter: '{',
+    closeDelimiter: '}',
+})
+app.set('views', './public');
 
 /* ------------------------------------------------------- */
 // SessionCookies:
