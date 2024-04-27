@@ -76,6 +76,9 @@ app.use('/views/blog', require('./src/routes/views/blogRoute'))
 app.use('/api/user', require('./src/routes/api/userRoute'))
 app.use('/api/blog', require('./src/routes/api/blogRoute'))
 
+// StaticFiles:
+app.use('/assets', express.static('./public/assets'));
+
 /* ------------------------------------------------------- */
 // Synchronization:
 // require('./src/sync')()
