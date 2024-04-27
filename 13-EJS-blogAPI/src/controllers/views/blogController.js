@@ -95,8 +95,15 @@ module.exports.BlogPost = {
         // })
 
         const categories = await BlogCategory.find();
+        // recent posts:
+        const recentPosts = await BlogPost.find().sort({createdAt: 'desc'}).limit(3);
 
-        res.render('index', {categories, posts: data});
+        res.render('index', {
+            categories, 
+            posts: data, 
+            recentPosts,
+            details: await res.getModelListDetails(BlogPost)
+        });
     },
 
     listCategoryPosts: async (req, res) => {
