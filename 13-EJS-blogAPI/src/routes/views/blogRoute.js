@@ -10,6 +10,8 @@ const { BlogCategory, BlogPost } = require('../../controllers/views/blogControll
 // ------------------------------------------
 // BlogCategory
 // ------------------------------------------
+
+
 router.route('/category')
     .get(BlogCategory.list)
     .post(BlogCategory.create)
