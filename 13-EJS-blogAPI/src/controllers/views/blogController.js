@@ -94,7 +94,9 @@ module.exports.BlogPost = {
         //     result: data,
         // })
 
-        res.render('index')
+        const categories = await BlogCategory.find();
+
+        res.render('index', {categories, posts: data});
     },
 
     listCategoryPosts: async (req, res) => {
