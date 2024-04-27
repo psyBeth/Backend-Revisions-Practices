@@ -64,7 +64,8 @@ app.use(require('./src/middlewares/findSearchSortPage'))
 //     };
 // });
 app.all('/', (req, res) => {
-    res.send('<h1>Welcome to Blog APP</h1>')
+    res.redirect('/views/blog/post');
+    // res.send('<h1>Welcome to Blog APP</h1>');
 })
 
 // VIEW Routes:
