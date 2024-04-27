@@ -48,8 +48,23 @@ require('./src/dbConnection')
 app.use(require('./src/middlewares/findSearchSortPage'))
 
 // HomePage:
+// app.all('/*', (req, res) => {
+//     if(req.originalUrl == '/') {
+//         res.redirect('/views')
+//         res.end()
+//     };
+
+//     if(req.originalUrl.startsWith('/api')) {
+//         res.send({
+//             error: false,
+//             message: 'WELLCOME TO BLOG APP'
+//         })
+//     } else {
+//         res.send('Wellcome to Blog APP')
+//     };
+// });
 app.all('/', (req, res) => {
-    res.send('WELCOME TO BLOG API')
+    res.send('<h1>Welcome to Blog APP</h1>')
 })
 
 // VIEW Routes:
