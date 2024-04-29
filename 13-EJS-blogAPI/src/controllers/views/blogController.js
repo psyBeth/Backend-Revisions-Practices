@@ -85,7 +85,7 @@ module.exports.BlogPost = {
 
     list: async (req, res) => {
 
-        const data = await res.getModelList(BlogPost, 'blogCategoryId')
+        const data = await res.getModelList(BlogPost, { published: true }, 'blogCategoryId')
 
         // res.status(200).send({
         //     error: false,
@@ -143,11 +143,14 @@ module.exports.BlogPost = {
         // req.params.postId
         // const data = await BlogPost.findById(req.params.postId)
         const data = await BlogPost.findOne({ _id: req.params.postId }).populate('blogCategoryId') // get Primary Data
+        console.log(data)
 
-        res.status(200).send({
-            error: false,
-            result: data
-        })
+        // res.status(200).send({
+        //     error: false,
+        //     result: data
+        // })
+
+        res.render('postRead', { post: data })
 
     },
 
