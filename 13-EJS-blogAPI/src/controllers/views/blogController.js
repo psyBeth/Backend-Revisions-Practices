@@ -129,13 +129,15 @@ module.exports.BlogPost = {
         //     fieldName: 'value',
         //     fieldName: 'value',
         // })
-        const data = await BlogPost.create(req.body)
 
-        res.status(201).send({
-            error: false,
-            body: req.body,
-            result: data,
-        })
+
+        if(req.method == 'POST'){
+            const data = await BlogPost.create(req.body)
+            res.redirect('/')
+        } else {
+            res.render('postForm')
+        }
+
     },
 
     read: async (req, res) => {
@@ -143,7 +145,6 @@ module.exports.BlogPost = {
         // req.params.postId
         // const data = await BlogPost.findById(req.params.postId)
         const data = await BlogPost.findOne({ _id: req.params.postId }).populate('blogCategoryId') // get Primary Data
-        console.log(data)
 
         // res.status(200).send({
         //     error: false,
