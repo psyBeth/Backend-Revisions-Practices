@@ -101,6 +101,7 @@ module.exports.BlogPost = {
         const pageUrl = req.originalUrl.replace(/[?|&]page=([^&]+)/gi, '')
 
         res.render('index', {
+            user: req.session?.user,
             categories,
             posts: data,
             recentPosts,
