@@ -135,7 +135,9 @@ module.exports.BlogPost = {
             const data = await BlogPost.create(req.body)
             res.redirect('/')
         } else {
-            res.render('postForm')
+            res.render('postForm', {
+                categories: await BlogCategory.find()
+            })
         }
 
     },

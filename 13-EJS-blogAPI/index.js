@@ -41,6 +41,9 @@ app.use(session({ secret: process.env.SECRET_KEY || 'secret_keys_for_cookies' })
 // Accept json data & convert to object:
 app.use(express.json())
 
+// accept form-data:
+app.use(express.urlencoded({extended: true}));
+
 // Connect to MongoDB with Mongoose:
 require('./src/dbConnection')
 
