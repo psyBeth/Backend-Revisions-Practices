@@ -72,7 +72,7 @@ app.all('/', (req, res) => {
 })
 
 // VIEW Routes:
-app.use('/views/user', require('./src/routes/views/userRoute'))
+app.use('/', require('./src/routes/views/userRoute'))
 app.use('/views/blog', require('./src/routes/views/blogRoute'))
 
 // API Routes:
