@@ -85,14 +85,9 @@ module.exports.BlogPost = {
 
     list: async (req, res) => {
 
-        const data = await res.getModelList(BlogPost, { published: true }, 'blogCategoryId')
+        const customFilter = req.session?.user ? {} : { published: true }
 
-        // res.status(200).send({
-        //     error: false,
-        //     count: data.length,
-        //     details: await res.getModelListDetails(BlogPost),
-        //     result: data,
-        // })
+        const data = await res.getModelList(BlogPost, customFilter, 'blogCategoryId')
 
         const categories = await BlogCategory.find()
         // Recent Posts:
@@ -101,11 +96,11 @@ module.exports.BlogPost = {
         const pageUrl = req.originalUrl.replace(/[?|&]page=([^&]+)/gi, '')
 
         res.render('index', {
-            user: req.session?.user,
+            // user: req.session?.user, // Bunun yerinde res.locals.user kullanılabilir.
             categories,
             posts: data,
             recentPosts,
-            details: await res.getModelListDetails(BlogPost),
+            details: await res.getModelListDetails(BlogPost, customFilter),
             pageUrl: (pageUrl.includes('?') ? pageUrl : pageUrl + '?')
         })
     },
@@ -124,23 +119,22 @@ module.exports.BlogPost = {
     // CRUD ->
 
     create: async (req, res) => {
+
+        if (req.method == 'POST') {
+
+            req.body.userId = req.session.user.id
         
-        // const data = await BlogPost.create({
-        //     fieldName: 'value',
-        //     fieldName: 'value',
-        //     fieldName: 'value',
-        // })
-
-
-        if(req.method == 'POST'){
             const data = await BlogPost.create(req.body)
+
             res.redirect('/')
+
         } else {
+
             res.render('postForm', {
+                post: null,
                 categories: await BlogCategory.find()
             })
         }
-
     },
 
     read: async (req, res) => {
@@ -148,11 +142,7 @@ module.exports.BlogPost = {
         // req.params.postId
         // const data = await BlogPost.findById(req.params.postId)
         const data = await BlogPost.findOne({ _id: req.params.postId }).populate('blogCategoryId') // get Primary Data
-
-        // res.status(200).send({
-        //     error: false,
-        //     result: data
-        // })
+        // console.log(data)
 
         res.render('postRead', { post: data })
 
@@ -160,15 +150,19 @@ module.exports.BlogPost = {
 
     update: async (req, res) => {
         
-        // const data = await BlogPost.findByIdAndUpdate(req.params.postId, req.body, { new: true }) // return new-data
-        const data = await BlogPost.updateOne({ _id: req.params.postId }, req.body, { runValidators: true })
+        if (req.method == 'POST') {
 
-        res.status(202).send({
-            error: false,
-            body: req.body,
-            result: data, // update infos
-            newData: await BlogPost.findOne({ _id: req.params.postId })
-        })
+            const data = await BlogPost.updateOne({ _id: req.params.postId }, req.body, { runValidators: true })
+
+            res.redirect('/')
+
+        } else {
+
+            res.render('postForm', {
+                post: await BlogPost.findOne({ _id: req.params.postId }),
+                categories: await BlogCategory.find(),
+            })
+        }
 
     },
 
@@ -176,9 +170,7 @@ module.exports.BlogPost = {
         
         const data = await BlogPost.deleteOne({ _id: req.params.postId })
 
-        // res.sendStatus( (data.deletedCount >= 1) ? 204 : 404 )
-
-        res.redirect('/');
+        res.redirect('/')
 
     },
 }
