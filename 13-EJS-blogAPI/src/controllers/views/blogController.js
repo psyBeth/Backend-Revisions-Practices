@@ -87,11 +87,12 @@ module.exports.BlogPost = {
 
         const customFilter = req.session?.user ? {} : { published: true }
 
-        const data = await res.getModelList(BlogPost, customFilter, 'blogCategoryId')
+        let data = await res.getModelList(BlogPost, customFilter, 'blogCategoryId');
+        data = data.sort((a, b) => a.createdAt - b.createdAt); //! Sort the posts ascending based on createdAt
 
         const categories = await BlogCategory.find()
         // Recent Posts:
-        const recentPosts = await BlogPost.find().sort({ createdAt: 'desc' }).limit(3)
+        const recentPosts = await BlogPost.find().sort({ createdAt: 'asc' }).limit(3)
         // Url içinde page=x temizle:
         const pageUrl = req.originalUrl.replace(/[?|&]page=([^&]+)/gi, '')
 
