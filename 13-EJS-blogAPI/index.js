@@ -50,22 +50,12 @@ require('./src/dbConnection')
 // Searching&Sorting&Pagination:
 app.use(require('./src/middlewares/findSearchSortPage'))
 
-// HomePage:
-// app.all('/*', (req, res) => {
-//     if(req.originalUrl == '/') {
-//         res.redirect('/views')
-//         res.end()
-//     };
+app.use((req, res, next) => {
+    res.locals.user = req.session?.user;
+    next();
+});
 
-//     if(req.originalUrl.startsWith('/api')) {
-//         res.send({
-//             error: false,
-//             message: 'WELLCOME TO BLOG APP'
-//         })
-//     } else {
-//         res.send('Wellcome to Blog APP')
-//     };
-// });
+// HomePage: deleted comments 
 app.all('/', (req, res) => {
     res.redirect('/views/blog/post');
     // res.send('<h1>Welcome to Blog APP</h1>');
@@ -81,12 +71,14 @@ app.use('/api/blog', require('./src/routes/api/blogRoute'))
 
 // StaticFiles:
 app.use('/assets', express.static('./public/assets'));
+// TinyMCE static files:
+app.use('/tinymce', express.static('./node_modules/tinymce'));
 
 /* ------------------------------------------------------- */
 // Synchronization:
 // require('./src/sync')()
 
 // errorHandler:
-app.use(require('./src/errorHandler'))
+app.use(require('./src/errorHandler'));
 
-app.listen(PORT, () => console.log('Running: http://127.0.0.1:' + PORT))
+app.listen(PORT, () => console.log('Running: http://127.0.0.1:' + PORT));
